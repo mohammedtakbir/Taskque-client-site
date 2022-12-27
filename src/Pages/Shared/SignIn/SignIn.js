@@ -1,35 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { GoogleAuthProvider, signInWithPopup, getAuth,  } from 'firebase/auth';
-import app from '../../../firebase/firebase.config';
-import { useDispatch, useSelector } from 'react-redux';
-import { setActiveUser, setUserLogOut, selectUserEmail, selectUserName } from '../../../ReduxAuth/ReduxAuth';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { GoogleAuthProvider, signInWithPopup, getAuth, } from 'firebase/auth';
+import { auth } from '../../../firebase/firebase.config';
+import { useDispatch } from 'react-redux';
+import { setActiveUser } from '../../../ReduxAuth/ReduxAuth';
+import { toast } from 'react-hot-toast';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
-const auth = getAuth(app);
+
 const googleProvider = new GoogleAuthProvider()
 
 const SignIn = () => {
-    const dispatch = useDispatch()
-
-    const userName = useSelector(selectUserName)
-    const userEmail = useSelector(selectUserEmail)
+    const dispatch = useDispatch();
+    const { userSignIn } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleSignIn = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+
+        userSignIn(email, password)
+            .then(res => {
+                navigate('/');
+                setError('');
+                form.reset();
+                toast.success('Sign In Successfully!')
+            })
+            .catch(err => setError(err.message))
     }
 
     const handleGoogleSingIn = () => {
         signInWithPopup(auth, googleProvider)
-        .then(res => {
-            dispatch(setActiveUser({
-                userName: res.user.displayName,
-                userEmail: res.user.email
-            }))
-        })
+            .then(res => {
+                dispatch(setActiveUser({
+                    userName: res.user.displayName,
+                    userEmail: res.user.email
+                }))
+                navigate('/');
+                setError('');
+                toast.success('Sign In Successfully!')
+            })
+            .catch(err => setError(err.message))
     }
 
     return (
@@ -63,11 +78,12 @@ const SignIn = () => {
                             className='text-blue-500 text-sm hover:underline !mt-0'>
                             Forgot Password
                         </button>
+                        <p className='text-sm text-red-500 !mt-1'>{error}</p>
                         <button
                             type="submit"
-                            className="w-full text-white bg-gray-700 hover:bg-gray-800 focus:ring-2 focus:outline-none focus:ring-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center">{'Sign In'}</button>
+                            className="!mt-4 w-full text-white bg-gray-700 hover:bg-gray-800 focus:ring-2 focus:outline-none focus:ring-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center">{'Sign In'}</button>
                         <div className="text-sm text-gray-500 !mt-3 text-center">
-                            Don't have an account? <Link to="/signup" className="text-blue-500 hover:underline">Create new account</Link>
+                            Don't have an account? <Link to="/register" className="text-blue-500 hover:underline">Create new account</Link>
                         </div>
                     </form>
                     <div>
