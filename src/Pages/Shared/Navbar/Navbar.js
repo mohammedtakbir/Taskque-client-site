@@ -12,7 +12,7 @@ const Navbar = () => {
             <nav className='md:container mx-auto flex justify-between items-center relative'>
                 <Link to='/' className='text-2xl font-semibold'>Taskque</Link>
                 <ul className={`md:bg-transparent bg-gray-100 rounded-lg md:flex items-center md:justify-end md:static absolute w-full text-center z-10 ${open ? 'top-12' : 'top-[-300px]'}`}>
-                    <li className='md:ml-10 md:mb-0 mb-4 md:pt-0 pt-4'>
+                    {/* <li className='md:ml-10 md:mb-0 mb-4 md:pt-0 pt-4'>
                         <NavLink
                             onClick={() => setOpen(!open)}
                             style={({ isActive }) => {
@@ -23,7 +23,7 @@ const Navbar = () => {
                         >
                             Home
                         </NavLink>
-                    </li>
+                    </li> */}
                     <li className='md:ml-10 md:mb-0 mb-4'>
                         <NavLink
                             onClick={() => setOpen(!open)}

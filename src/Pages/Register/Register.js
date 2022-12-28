@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../../contexts/AuthProvider';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
     const { userRegister } = useContext(AuthContext);
@@ -24,14 +24,13 @@ const Register = () => {
                 toast.success('Signup successfully!')
             })
             .catch(err => setError(err.message))
-
     }
 
     return (
         <section className='lg:py-[100px] md:py-[70px] py-[50px] flex justify-center'>
             <div className="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-7 sm:mx-0 mx-3">
                 <form className="space-y-6" onSubmit={handleSignUp}>
-                    <h5 className="text-xl font-medium text-gray-900 text-center">Register</h5>
+                    <h5 className="text-xl font-medium text-gray-900 text-center">Create an Account!</h5>
                     <div>
                         <label className="block mb-2 text-sm font-medium text-gray-900">Email</label>
                         <input
@@ -52,17 +51,12 @@ const Register = () => {
                             required
                         />
                     </div>
-                    <button
-                        type="button"
-                        className='text-blue-500 text-sm hover:underline !mt-0'>
-                        Forgot Password
-                    </button>
                     <p className='text-sm text-red-500 !mt-1'>{error}</p>
                     <button
                         type="submit"
-                        className="!mt-3 w-full text-white bg-gray-700 hover:bg-gray-800 focus:ring-2 focus:outline-none focus:ring-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center">{'Register'}</button>
+                        className="!mt-5 w-full text-white bg-gray-700 hover:bg-gray-800 focus:ring-2 focus:outline-none focus:ring-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center">{'Register'}</button>
                     <div className="text-sm text-gray-500 !mt-3 text-center">
-                        Don't have an account? <Link to="/signIn" className="text-blue-500 hover:underline">Create new account</Link>
+                        Already have an account? <Link to="/signIn" className="text-blue-500 hover:underline">Sign In</Link>
                     </div>
                 </form>
             </div>

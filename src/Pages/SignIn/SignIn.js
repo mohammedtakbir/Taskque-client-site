@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { GoogleAuthProvider, signInWithPopup, getAuth, } from 'firebase/auth';
-import { auth } from '../../../firebase/firebase.config';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { auth } from '../../firebase/firebase.config';
 import { useDispatch } from 'react-redux';
-import { setActiveUser } from '../../../ReduxAuth/ReduxAuth';
+import { setActiveUser } from '../../ReduxAuth/ReduxAuth';
 import { toast } from 'react-hot-toast';
 import { useContext } from 'react';
-import { AuthContext } from '../../../contexts/AuthProvider';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 
 const googleProvider = new GoogleAuthProvider()
