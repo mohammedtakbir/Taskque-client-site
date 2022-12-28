@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MyTask = ({ myTask }) => {
-    const { taskImage, taskDetail, taskTitle } = myTask;
+    const { taskImage, taskDetail, taskTitle, _id } = myTask;
+
+
     return (
         <>
             <div href="#" className="border rounded-lg shadow-md p-5">
@@ -13,7 +16,9 @@ const MyTask = ({ myTask }) => {
                     </div>
                 </div>
                 <div className='sm:flex pt-7'>
-                    <button className='underline mr-4 font-medium text-blue-500'>Update</button>
+                    <Link to={`/taskUpdate/${_id}`}>
+                        <button className='underline mr-4 font-medium text-blue-500'>Update</button>
+                    </Link>
                     <button className='underline mr-4 font-medium text-red-500'>Delete</button>
                     <button className='underline mr-4 font-medium text-green-500'>Completed</button>
                 </div>

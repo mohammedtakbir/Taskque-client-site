@@ -16,7 +16,7 @@ const MyTasks = () => {
     if (isLoading) {
         return <Loading />
     }
-    console.log(myTasks)
+    
     return (
         <div className='max-w-[1200px] mx-auto py-20'>
             <div className='grid lg:grid-cols-2 grid-cols-1 gap-5'>
