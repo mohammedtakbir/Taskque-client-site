@@ -31,7 +31,7 @@ const Navbar = () => {
                                 return isActive ? { textDecoration: 'underline' } : undefined
                             }}
                             className='text-sm font-medium text-secondary hover:text-primary duration-200'
-                            to='/add-task'
+                            to='/addTask'
                         >
                             Add Task
                         </NavLink>
@@ -43,7 +43,7 @@ const Navbar = () => {
                                 return isActive ? { textDecoration: 'underline' } : undefined
                             }}
                             className='text-sm font-medium text-secondary hover:text-primary duration-200'
-                            to='/my-task'
+                            to='/myTask'
                         >
                             My Task
                         </NavLink>

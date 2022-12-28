@@ -1,10 +1,14 @@
 import React from 'react';
+import { useContext } from 'react';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const AddTask = () => {
-
+    const { user } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleTaskSubmit = (e) => {
         setLoading(true);
@@ -27,6 +31,7 @@ const AddTask = () => {
                 const addTask = {
                     taskTitle: title,
                     taskDetail: detail,
+                    userEmail: user?.email,
                     taskImage: imageData.data.display_url
                 }
                 console.log(addTask)
@@ -40,6 +45,8 @@ const AddTask = () => {
                     .then(res => res.json())
                     .then(data => {
                         if (data.acknowledged) {
+                            navigate('/myTask')
+                            form.reset();
                             setLoading(false)
                             toast.success('Task Added Successfully!')
                         }
