@@ -55,7 +55,7 @@ const Navbar = () => {
                                 return isActive ? { textDecoration: 'underline' } : undefined
                             }}
                             className='text-sm font-medium text-secondary hover:text-primary duration-200'
-                            to='/completed-task'
+                            to='/completedTasks'
                         >
                             Completed Task
                         </NavLink>
