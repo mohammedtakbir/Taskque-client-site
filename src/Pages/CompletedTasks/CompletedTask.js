@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import DeleteModal from '../../components/DeleteModal';
 
 const CompletedTask = ({ completedTask, refetch }) => {
@@ -19,6 +20,9 @@ const CompletedTask = ({ completedTask, refetch }) => {
                                 task={completedTask}
                                 refetch={refetch}
                             />
+                            <Link to='/myTask'>
+                                <button className='hover:underline mr-4 font-medium text-blue-500'>Not Completed</button>
+                            </Link>
                         </div>
                     </div>
 
