@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DeleteModal from '../../components/DeleteModal';
 
-const MyTask = ({ myTask }) => {
+const MyTask = ({ myTask, refetch }) => {
     const { taskImage, taskDetail, taskTitle, _id } = myTask;
-
 
     return (
         <>
@@ -19,10 +19,11 @@ const MyTask = ({ myTask }) => {
                     <Link to={`/taskUpdate/${_id}`}>
                         <button className='underline mr-4 font-medium text-blue-500'>Update</button>
                     </Link>
-                    <button className='underline mr-4 font-medium text-red-500'>Delete</button>
+                    <DeleteModal myTask={myTask} refetch={refetch} />
                     <button className='underline mr-4 font-medium text-green-500'>Completed</button>
                 </div>
             </div>
+
         </>
     );
 };

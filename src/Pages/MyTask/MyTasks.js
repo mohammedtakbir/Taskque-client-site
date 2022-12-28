@@ -8,7 +8,7 @@ import MyTask from './MyTask';
 const MyTasks = () => {
     const { user } = useContext(AuthContext);
 
-    const { data: myTasks = [], isLoading } = useQuery({
+    const { data: myTasks = [], isLoading, refetch } = useQuery({
         queryKey: ['myTask', user?.email],
         queryFn: () => fetch(`http://localhost:5000/myTask?email=${user?.email}`)
             .then(res => res.json())
@@ -16,7 +16,7 @@ const MyTasks = () => {
     if (isLoading) {
         return <Loading />
     }
-    
+
     return (
         <div className='max-w-[1200px] mx-auto py-20'>
             <div className='grid lg:grid-cols-2 grid-cols-1 gap-5'>
@@ -24,6 +24,7 @@ const MyTasks = () => {
                     myTasks.map(myTask => <MyTask
                         key={myTask._id}
                         myTask={myTask}
+                        refetch={refetch}
                     />)
                 }
             </div>
