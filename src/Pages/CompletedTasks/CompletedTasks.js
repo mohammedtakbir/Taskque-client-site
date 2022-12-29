@@ -10,17 +10,16 @@ const CompletedTasks = () => {
 
     const { data: completedTasks = [], isLoading, refetch } = useQuery({
         queryKey: ['completedTasks', user?.email],
-        queryFn: () => fetch(`http://localhost:5000/completedTasks?email=${user?.email}`)
+        queryFn: () => fetch(`https://taskque-red.vercel.app/completedTasks?email=${user?.email}`)
             .then(res => res.json())
     })
     if (isLoading) {
         return <Loading />
     }
 
-    console.log(completedTasks)
 
     return (
-        <section className='dark:bg-gray-800'>
+        <section className={`dark:bg-gray-800 ${completedTasks.length < 3 ? 'h-[80vh]' : null}`}>
             <div className='max-w-[1200px] mx-auto pt-[70px] pb-[80px]'>
                 <h2 className='text-center text-3xl font-semibold mb-10 dark:text-white'>
                     {

@@ -12,7 +12,7 @@ const MyTask = ({ myTask, refetch }) => {
     const navigate = useNavigate();
 
     const handleCompletedTask = (id) => {
-        fetch(`http://localhost:5000/completedTask?status=completed&id=${id}`, {
+        fetch(`https://taskque-red.vercel.app/completedTask?status=completed&id=${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -27,7 +27,7 @@ const MyTask = ({ myTask, refetch }) => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`http://localhost:5000/completedTask/${_id}`)
+        fetch(`https://taskque-red.vercel.app/completedTask/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setLoading(false);
@@ -39,7 +39,7 @@ const MyTask = ({ myTask, refetch }) => {
 
     return (
         <>
-            <div href="#" className="border rounded-lg shadow-md p-5 dark:bg-gray-700 dark:border-gray-600">
+            <div className="border rounded-lg shadow-md p-5 dark:bg-gray-700 dark:border-gray-600">
                 <div className='flex flex-col items-center md:flex-row'>
                     <img className="object-cover md:w-52 md:h-auto w-[300px] h-[250px] rounded-t-lg sm:h-full md:rounded-none md:rounded-l-lg" src={taskImage} alt="" />
                     <div className="flex flex-col justify-between p-4 md:pt-0 pt-7 leading-normal">

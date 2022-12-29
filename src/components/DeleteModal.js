@@ -32,7 +32,7 @@ const DeleteModal = ({ task, refetch, title }) => {
 
     const handleDeleteTask = (id) => {
 
-        fetch(`http://localhost:5000/deleteTask/${id}`, {
+        fetch(`https://taskque-red.vercel.app/deleteTask/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

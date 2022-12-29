@@ -35,7 +35,7 @@ const AddTask = () => {
                     taskImage: imageData.data.display_url
                 }
                 console.log(addTask)
-                fetch('http://localhost:5000/addTask', {
+                fetch('https://taskque-red.vercel.app/addTask', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

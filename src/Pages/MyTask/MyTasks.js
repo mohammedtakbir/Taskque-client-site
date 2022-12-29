@@ -10,7 +10,7 @@ const MyTasks = () => {
 
     const { data: myTasks = [], isLoading, refetch } = useQuery({
         queryKey: ['myTask', user?.email],
-        queryFn: () => fetch(`http://localhost:5000/myTask?email=${user?.email}`)
+        queryFn: () => fetch(`https://taskque-red.vercel.app/myTask?email=${user?.email}`)
             .then(res => res.json())
     })
     if (isLoading) {
@@ -18,7 +18,7 @@ const MyTasks = () => {
     }
 
     return (
-        <div className='dark:bg-gray-800'>
+        <div className={`dark:bg-gray-800 ${myTasks.length < 3 ? 'h-[80vh]' : null}`}>
             <div className='max-w-[1200px] mx-auto pt-[70px] pb-[80px]'>
                 <h2 className='text-center text-3xl font-semibold mb-10 dark:text-white'>
                     {myTasks.length < 1 ? 'No Task Available' : 'All My Tasks'}

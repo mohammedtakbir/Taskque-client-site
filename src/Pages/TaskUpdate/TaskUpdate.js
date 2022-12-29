@@ -12,7 +12,7 @@ const TaskUpdate = () => {
 
     const { data: task = {}, isLoading } = useQuery({
         queryKey: ['task', id.id],
-        queryFn: () => fetch(`http://localhost:5000/task/${id.id}`)
+        queryFn: () => fetch(`https://taskque-red.vercel.app/task/${id.id}`)
             .then(res => res.json())
     })
     if (isLoading) {
@@ -43,7 +43,7 @@ const TaskUpdate = () => {
                     taskImage: imageData.data.display_url
                 }
 
-                fetch(`http://localhost:5000/updatedTask/${_id}`, {
+                fetch(`https://taskque-red.vercel.app/updatedTask/${_id}`, {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'

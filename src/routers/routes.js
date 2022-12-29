@@ -7,6 +7,7 @@ import MyTask from "../Pages/MyTask/MyTasks";
 import TaskUpdate from "../Pages/TaskUpdate/TaskUpdate";
 import CompletedTasks from "../Pages/CompletedTasks/CompletedTasks";
 import Home from "../Pages/Home/Home/Home";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -27,11 +28,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/addTask',
-                element: <AddTask />
+                element: <PrivateRoute><AddTask /></PrivateRoute>
             },
             {
                 path: '/myTask',
-                element: <MyTask />
+                element: <PrivateRoute><MyTask /></PrivateRoute>
             },
             {
                 path: '/taskUpdate/:id',
@@ -39,7 +40,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/completedTasks',
-                element: <CompletedTasks />
+                element: <PrivateRoute><CompletedTasks /></PrivateRoute>
             },
         ],
     }
