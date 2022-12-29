@@ -60,7 +60,7 @@ const AddTask = () => {
         <div className='dark:bg-gray-800'>
             <div className='max-w-[1200px] mx-auto py-[80px]'>
                 <section className='lg:py-[50px] md:py-[30px] py-[10px] flex justify-center'>
-                    <div className="!px-4 w-full max-w-[400px] bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-7 sm:mx-0 mx-3 dark:bg-gray-700 dark:border-gray-700">
+                    <div className="!px-4 py-7 w-full max-w-[400px] bg-white rounded-lg border border-gray-200 shadow-md sm:mx-0 mx-3 dark:bg-gray-700 dark:border-gray-700">
                         <form className="space-y-6" onSubmit={handleTaskSubmit}>
                             <h5 className="text-2xl font-medium text-gray-900 text-center dark:text-white">Add Your Daily Task!</h5>
                             <div>

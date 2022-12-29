@@ -27,7 +27,7 @@ const CompletedTasks = () => {
                         completedTasks.length < 1 ? 'No Task Completed' : 'All My Completed Tasks'
                     }
                 </h2>
-                <div className='grid lg:grid-cols-2 grid-cols-1 gap-5'>
+                <div className='grid lg:grid-cols-2 grid-cols-1 gap-5 mx-2'>
                     {
                         completedTasks.map(completedTask => <CompletedTask
                             key={completedTask._id}

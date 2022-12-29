@@ -10,11 +10,11 @@ const CompletedTask = ({ completedTask, refetch }) => {
         <>
             <div className="border rounded-lg shadow-md p-5 dark:bg-gray-700 dark:border-gray-600">
                 <div className='flex flex-col items-center md:flex-row'>
-                    <img className="object-cover sm:w-full w-[200px] rounded-t-lg sm:h-full h-[200px] md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={taskImage} alt="" />
-                    <div className="flex flex-col justify-between p-4 leading-normal">
+                    <img className="object-cover md:w-52 md:h-auto w-[300px] h-[250px] rounded-t-lg sm:h-full md:rounded-none md:rounded-l-lg" src={taskImage} alt="" />
+                    <div className="flex flex-col justify-between md:p-4 leading-normal md:mt-0 mt-7">
                         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{taskTitle}</h5>
                         <p className="mb-3 font-normal text-gray-700 dark:text-white">{taskDetail}</p>
-                        <div className='sm:flex pt-7'>
+                        <div className='sm:flex md:pt-7 sm:pt-4 pt-3'>
                             <DeleteModal
                                 title='Are you sure you want to delete this Completed Task?'
                                 task={completedTask}
@@ -26,7 +26,7 @@ const CompletedTask = ({ completedTask, refetch }) => {
                         </div>
                     </div>
                 </div>
-                <div className='mt-10'>
+                <div className='md:mt-10 mt-4'>
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Comment</label>
                     <textarea
                         name='detail'

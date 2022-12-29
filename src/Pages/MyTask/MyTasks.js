@@ -23,7 +23,7 @@ const MyTasks = () => {
                 <h2 className='text-center text-3xl font-semibold mb-10 dark:text-white'>
                     {myTasks.length < 1 ? 'No Task Available' : 'All My Tasks'}
                 </h2>
-                <div className='grid lg:grid-cols-2 grid-cols-1 gap-5'>
+                <div className='grid lg:grid-cols-2 grid-cols-1 gap-5 mx-2'>
                     {
                         myTasks.map(myTask => <MyTask
                             key={myTask._id}

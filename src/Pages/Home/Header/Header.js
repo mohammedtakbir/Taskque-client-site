@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <div className='h-[90vh] flex items-center bg-[#EFF3F6] dark:bg-gray-800'>
+        <div className='sm:h-[90vh] h-[80vh] flex items-center bg-[#EFF3F6] dark:bg-gray-800'>
             <div className='container mx-auto text-center'>
                 <div className=' md:mx-0 mx-2'>
                     <span className='bg-gray-700 text-white text-[11px] py-1 px-3 rounded-2xl font-medium'>TASK MANAGEMENT</span>
