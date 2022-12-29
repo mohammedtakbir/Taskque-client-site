@@ -18,15 +18,20 @@ const MyTasks = () => {
     }
 
     return (
-        <div className='max-w-[1200px] mx-auto py-20'>
-            <div className='grid lg:grid-cols-2 grid-cols-1 gap-5'>
-                {
-                    myTasks.map(myTask => <MyTask
-                        key={myTask._id}
-                        myTask={myTask}
-                        refetch={refetch}
-                    />)
-                }
+        <div className='dark:bg-gray-800'>
+            <div className='max-w-[1200px] mx-auto pt-[70px] pb-[80px]'>
+                <h2 className='text-center text-3xl font-semibold mb-10 dark:text-white'>
+                    {myTasks.length < 1 ? 'No Task Available' : 'All My Tasks'}
+                </h2>
+                <div className='grid lg:grid-cols-2 grid-cols-1 gap-5'>
+                    {
+                        myTasks.map(myTask => <MyTask
+                            key={myTask._id}
+                            myTask={myTask}
+                            refetch={refetch}
+                        />)
+                    }
+                </div>
             </div>
         </div>
     );

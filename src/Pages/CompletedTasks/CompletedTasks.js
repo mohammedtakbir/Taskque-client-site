@@ -20,18 +20,24 @@ const CompletedTasks = () => {
     console.log(completedTasks)
 
     return (
-        <div className='max-w-[1200px] mx-auto py-10'>
-            <h2 className='text-center text-3xl font-semibold mb-10'>All My Completed Tasks</h2>
-            <div className='grid lg:grid-cols-2 grid-cols-1 gap-5'>
-                {
-                    completedTasks.map(completedTask => <CompletedTask
-                        key={completedTask._id}
-                        completedTask={completedTask}
-                        refetch={refetch}
-                    />)
-                }
+        <section className='dark:bg-gray-800'>
+            <div className='max-w-[1200px] mx-auto pt-[70px] pb-[80px]'>
+                <h2 className='text-center text-3xl font-semibold mb-10 dark:text-white'>
+                    {
+                        completedTasks.length < 1 ? 'No Task Completed' : 'All My Completed Tasks'
+                    }
+                </h2>
+                <div className='grid lg:grid-cols-2 grid-cols-1 gap-5'>
+                    {
+                        completedTasks.map(completedTask => <CompletedTask
+                            key={completedTask._id}
+                            completedTask={completedTask}
+                            refetch={refetch}
+                        />)
+                    }
+                </div>
             </div>
-        </div>
+        </section>
     );
 };
 

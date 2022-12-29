@@ -23,6 +23,11 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
+    //* sign out an user
+    // const userSignOut = 
+
+
+
     //* get currently sign-in user
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -33,12 +38,6 @@ const AuthProvider = ({ children }) => {
             unsubscribe();
         }
     }, [])
-
-
-
-
-
-
 
     const authInfo = {
         userRegister,
