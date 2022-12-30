@@ -18,7 +18,7 @@ const MyTasks = () => {
     }
 
     return (
-        <div className={`dark:bg-gray-800 ${myTasks.length < 3 ? 'h-[80vh]' : null}`}>
+        <div className={`dark:bg-gray-800 ${myTasks.length < 3 ? 'h-[100vh]' : null}`}>
             <div className='max-w-[1200px] mx-auto pt-[70px] pb-[80px]'>
                 <h2 className='text-center text-3xl font-semibold mb-10 dark:text-white'>
                     {myTasks.length < 1 ? 'No Task Available' : 'All My Tasks'}
